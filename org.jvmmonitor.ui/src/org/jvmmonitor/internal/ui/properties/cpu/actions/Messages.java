@@ -105,6 +105,9 @@ public final class Messages extends NLS {
     public static String focusOnLabel;
 
     /** */
+    public static String expandLabel;
+
+    /** */
     public static String clearCpuProfilingDataLabel;
 
     /** */

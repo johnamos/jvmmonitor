@@ -38,6 +38,7 @@ import org.jvmmonitor.internal.ui.IConfigurableColumns;
 import org.jvmmonitor.internal.ui.actions.ConfigureColumnsAction;
 import org.jvmmonitor.internal.ui.actions.CopyAction;
 import org.jvmmonitor.internal.ui.actions.OpenDeclarationAction;
+import org.jvmmonitor.internal.ui.properties.cpu.actions.ExpandAction;
 import org.jvmmonitor.internal.ui.properties.cpu.actions.FindAction;
 import org.jvmmonitor.internal.ui.properties.cpu.actions.FocusOnAction;
 import org.jvmmonitor.internal.ui.properties.cpu.actions.ShowCallersCalleesAction;
@@ -72,6 +73,9 @@ abstract public class AbstractFilteredTree extends FilteredTree implements
 
     /** The configure columns action. */
     protected ConfigureColumnsAction configureColumnsAction;
+
+    /** The expand action. */
+    ExpandAction expandAction;
 
     /**
      * The constructor.
@@ -219,6 +223,7 @@ abstract public class AbstractFilteredTree extends FilteredTree implements
         focusOnFrameAction = new FocusOnAction(this);
         showCallersCalleesAction = new ShowCallersCalleesAction(getViewer());
         configureColumnsAction = new ConfigureColumnsAction(this);
+        expandAction = new ExpandAction(this);
 
         // create menu manager
         MenuManager menuMgr = new MenuManager("#PopupMenu"); //$NON-NLS-1$
@@ -235,6 +240,8 @@ abstract public class AbstractFilteredTree extends FilteredTree implements
                 manager.add(showCallersCalleesAction);
                 manager.add(new Separator());
                 manager.add(configureColumnsAction);
+                manager.add(new Separator());
+                manager.add(expandAction);
                 addMenus(manager);
             }
         });
